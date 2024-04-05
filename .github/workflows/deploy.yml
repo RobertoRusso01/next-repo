@@ -31,9 +31,8 @@ jobs:
                 username: ${{ secrets.SSH_USER}}
                 key: ${{ secrets.SSH_PRIVATE_KEY}}
                 port: 22
-                source: /home/runner/work/robertorusso01/next-project/
+                source: /home/runner/work/next-repo/next-repo/.git/objects/1e/1cec92425c8b3b8d5829ebd27f216915d5dc36
                 target: /home/ec2-user/
-                strip_components: 2
             
             - name: Commands on EC2
               uses: appleboy/ssh-action@v1.0.3

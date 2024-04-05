@@ -35,7 +35,7 @@ jobs:
                 username: ${{ secrets.SSH_USER}}
                 key: ${{ secrets.SSH_PRIVATE_KEY}}
                 port: 22
-                source: /home/runner/work/next-repo/next-repo/.github/workloads/next-project.zip
+                source: /home/runner/work/next-repo/next-repo/repo.zip
                 target: /home/ec2-user/
             
             - name: Commands on EC2

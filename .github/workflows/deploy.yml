@@ -52,7 +52,8 @@ jobs:
                      cd next-app
                      pm2 start npm --name nextjs-app -- run start -- -p 3000
                      npm install
-                     npx next dev
+                     npx next start
+                     sudo systemctl restart nginx 
 
 
                 

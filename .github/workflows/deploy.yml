@@ -13,10 +13,10 @@ jobs:
               uses: actions/checkout@v2
             
             - name: Upload Artifact
-              uses: actions/upload-artifact@v2
+              uses: actions/upload-artifact@v4
               with:
                 name: next-project
-                path: .
+                path: /.
             
             - name: Download Artifact 
               uses: actions/download-artifact@v4
@@ -31,7 +31,7 @@ jobs:
                 username: ${{ secrets.SSH_USER}}
                 key: ${{ secrets.SSH_PRIVATE_KEY}}
                 port: 22
-                source: /home/runner/work/next-repo/next-repo/.git/objects/1e/1cec92425c8b3b8d5829ebd27f216915d5dc36
+                source: /home/runner/work/next-repo/next-repo/
                 target: /home/ec2-user/
             
             - name: Commands on EC2

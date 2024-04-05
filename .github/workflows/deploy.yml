@@ -50,8 +50,9 @@ jobs:
                      cd /home/ec2-user/
                      unzip repo.zip -d /home/ec2-user/next-app 
                      cd next-app
-                     pm2 start npm --name nextjs-app -- run start -- -p 3000
                      npm install
+                     pm2 start npm --name nextjs-app -- run start -- -p 3000
+                     npm next build
                      npx next start
                      sudo systemctl restart nginx 
 

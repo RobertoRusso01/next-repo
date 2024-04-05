@@ -1,1 +1,50 @@
-ciao
+name: Ci/Cd Sac Catania
+
+on:
+    push:
+        branches:
+            - main
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout Repo
+              uses: actions/checkout@v2
+            
+            - name: Upload Artifact
+              uses: actions/upload-artifact@v2
+              with:
+                name: next-project
+                path: .
+            
+            - name: Download Artifact on zip
+              uses: actions/download-artifact@v2
+              with:
+                name: next-project
+
+
+            - name: Deploying to EC2
+              uses: appleboy/scp-action@v0.1.7
+              with:
+                host: ${{ secrets.SSH_HOST }}
+                username: ${{ secrets.SSH_USER}}
+                key: ${{ secrets.SSH_PRIVATE_KEY}}
+                port: 22
+                source: /home/runner/work/robertorusso01/next-project/
+                target: /home/ec2-user/
+                strip_components: 2
+            
+            - name: Commands on EC2
+              uses: appleboy/ssh-action@v1.0.3
+              with:
+                host: ${{ secrets.SSH_HOST }}
+                username: ${{ secrets.SSH_USER }}
+                key: ${{ secrets.SSH_PRIVATE_KEY }}
+                port: ${{ secrets.SSH_PORT }}
+                script: |
+                cd /home/ec2-user/
+                echo "ciao" > helloworld.txt
+
+
+                

@@ -43,8 +43,8 @@ jobs:
                 key: ${{ secrets.SSH_PRIVATE_KEY }}
                 port: ${{ secrets.SSH_PORT }}
                 script: |
-                cd /home/ec2-user/
-                echo "ciao" > helloworld.txt
+                     cd /home/ec2-user/
+                     echo "ciao" > helloworld.txt
 
 
                 

@@ -11,12 +11,16 @@ jobs:
         steps:
             - name: Checkout Repo
               uses: actions/checkout@v2
-            
+
+        
+            - name: Zip time
+              run: zip -r repo.zip . 
+
             - name: Upload Artifact
               uses: actions/upload-artifact@v4
               with:
                 name: next-project
-                path: .
+                path: ../repo.zip
             
             - name: Download Artifact 
               uses: actions/download-artifact@v4
@@ -31,7 +35,7 @@ jobs:
                 username: ${{ secrets.SSH_USER}}
                 key: ${{ secrets.SSH_PRIVATE_KEY}}
                 port: 22
-                source: /home/runner/work/next-repo/next-repo/
+                source: /home/runner/work/next-repo/next-repo/.github/workloads/next-project.zip
                 target: /home/ec2-user/
             
             - name: Commands on EC2

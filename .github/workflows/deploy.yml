@@ -48,10 +48,8 @@ jobs:
                 port: ${{ secrets.SSH_PORT }}
                 script: |
                      cd /home/ec2-user/
-                     unzip repo.zip
-                     cd repo
-                     npm install
-                     npx next build
+                     unzip repo.zip -d /home/ec2-user/next-app 
+                     cd next-app
                      npx next start
 
 

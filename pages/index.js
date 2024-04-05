@@ -15,6 +15,7 @@ export default function Home() {
           Welcome to Sample <a href="https://nextjs.org">Next.js ✈️ Sac Catania </a> app!
         </h1>
         <p>by 🖥️<a href="https://robertorussowebdev.it">Roberto Russo Cloud Architect 👷🏻‍♂️</a></p>
+        <p>The Wave Studio 🌊🏄‍♂️</p>
       </main>
     </div>
   )

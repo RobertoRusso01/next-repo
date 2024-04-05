@@ -39,6 +39,7 @@ jobs:
                     cd /home/ec2-user/
                     sudo rm -r next-app
                     rm repo.zip
+                    pm2 delete nextjs-app
 
 
             - name: Deploying to EC2

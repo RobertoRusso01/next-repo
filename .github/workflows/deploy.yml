@@ -37,17 +37,22 @@ jobs:
                 key: ${{ secrets.KEY }}
                 source: /home/runner/work/next-repo/next-repo/repo.zip
                 target: /home/ec2-user/
+                strip_components: 2
             
             - name: Commands on EC2
               uses: appleboy/ssh-action@v1.0.3
               with:
-                host: ${{ secrets.SSH_HOST }}
-                username: ${{ secrets.SSH_USER }}
-                key: ${{ secrets.SSH_PRIVATE_KEY }}
+                host: ${{ secrets.HOST }}
+                username:  ${{ secrets.USERNAME }}
+                key: ${{ secrets.KEY }}
                 port: ${{ secrets.SSH_PORT }}
                 script: |
                      cd /home/ec2-user/
-                     echo "ciao" > helloworld.txt
+                     unzip repo.zip
+                     cd repo
+                     npm install
+                     npx next build
+                     npx next start
 
 
                 

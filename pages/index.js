@@ -14,7 +14,7 @@ export default function Home() {
         <h1 className={styles.title}>
           Welcome to Sample <a href="https://nextjs.org">Next.js ✈️ Sac Catania </a> app!
         </h1>
-        <p>by 🖥️<a href="https://robertorussowebdev.it">Roberto Russo Cloud Architect 👷🏻‍♂️</a></p>
+        <p>by 🖥️<a href="https://robertorussowebdev.it">Roberto Russo Cloud Architect  & Webdev👷🏻‍♂️</a></p>
         <p>The Wave Studio 🌊🏄‍♂️</p>
       </main>
     </div>
